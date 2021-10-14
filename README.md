@@ -1,3 +1,8 @@
+# 更新日誌
+### 20211014
+更新結尾資訊：可更快設定wordpress
+更新lampp軟連結語法：從command改成file (line 136)
+
 # autotwcc 說明文件
 
 ### 1.安裝ansible

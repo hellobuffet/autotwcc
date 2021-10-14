@@ -134,7 +134,12 @@
         dest: /opt/lampp/htdocs/wp
         state: link
     - name: auto start lampp link file
-      command: ln -s /opt/lampp/lampp  /etc/init.d/lampp
+      file:
+        src: /opt/lampp/lampp
+        dest: /etc/init.d/lampp
+        state: link
+#    - name: auto start lampp link file
+#      command: ln -s /opt/lampp/lampp  /etc/init.d/lampp
     - name: auto start lampp
       command: update-rc.d -f lampp defaults
 #==================DB程式設定區=================================
@@ -199,9 +204,13 @@
     - vars/default.yml
 
   tasks:
-    - name: print vm and load balancse info
+    - name: print private_ip
       debug:
-        var: lb_info.vip
-    - name: print DB IP info
-      debug:
-        var: '{{ db_info_have_private_ip[0].private_ip }}'
+        msg:
+          - "wordpress設定網址：http://{{ lb_info.vip }}/wp  "
+          - "資料庫名稱：　　wordpress"
+          - "使用者名稱：　　{{ twcc_db_wordpress_id }}"
+          - "密碼：　　　　　{{ twcc_db_wordpress_pw }}"
+          - "資料庫主機位置：{{ db_info_have_private_ip[0].private_ip }}"
+          - "資料表前置詞：　wp_"
+          - "完成wordpress設定的登入，或於瀏覽器位置輸入http://{{ lb_info.vip }}/wp/wp-login.php進行登入。"

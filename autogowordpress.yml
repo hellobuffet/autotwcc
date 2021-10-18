@@ -22,7 +22,7 @@
 #建立web server vm==================
     - name: create vm
       ansible.builtin.expect:
-        local_action: command twccli mk vcs -n {{ twcc_webserver_name }} -ptype v.super -itype ubuntu -img "Ubuntu 20.04" -key {{ twcc_key }} -wait -json
+        command: twccli mk vcs -n {{ twcc_webserver_name }} -ptype v.super -itype ubuntu -img "Ubuntu 20.04" -key {{ twcc_key }} -wait -json
         responses:
              'Do you want to renew your credentials format? [Y/n]': 'Y'
         register: vm_json

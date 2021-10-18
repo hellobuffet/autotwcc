@@ -48,5 +48,5 @@ vim vars/default.yml
 
 ### 5. 執行ansible
 ```
-ansible-player autogowordpress.yml
+ansible-playbook autogowordpress.yml
 ```

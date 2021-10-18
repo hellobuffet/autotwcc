@@ -13,12 +13,14 @@
 ### 1.安裝ansible
 ```
 sudo apt-get update -y
-sudo apt-get install -y ansible
+sudo apt-get install -y ansible  
+
 ```
 ### 2. 下載ansible腳本檔
 ```
 git clone https://github.com/hellobuffet/autotwcc.git
-cd autotwcc
+cd autotwcc  
+
 ```
 ### 3. 修改vars/default.yml
 ```
@@ -48,5 +50,6 @@ vim vars/default.yml
 
 ### 5. 執行ansible
 ```
-ansible-playbook autogowordpress.yml
+ansible-playbook autogowordpress.yml  
+
 ```

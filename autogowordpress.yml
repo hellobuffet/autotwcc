@@ -7,7 +7,12 @@
     - vars/default.yml
 #==================VM系統設定區=================================
   tasks:
-#修改金鑰權限
+#更新TWCCLI到最新版=================
+    - name: update TWCCLI
+      pip:
+         name: TWCC-CLI
+         state: latest
+#修改金鑰權限========================
     - name: change the key permissions
       file:
           path: "{{ twcc_key_path }}"

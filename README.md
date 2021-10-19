@@ -12,8 +12,7 @@
 
 ### 1.安裝ansible
 ```
-sudo apt-get update -y
-sudo apt-get install -y ansible  
+pip3 install ansible
 
 ```
 ### 2. 下載ansible腳本檔

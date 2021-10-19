@@ -12,8 +12,8 @@
 
 ### 1.安裝ansible
 ```
-sudo apt update
-sudo apt install ansible
+sudo apt update -y
+sudo apt install ansible -y
 pip3 install ansible
 
 ```

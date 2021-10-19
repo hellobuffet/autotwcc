@@ -14,6 +14,7 @@
 ```
 sudo apt update
 sudo apt install ansible
+pip3 install ansible
 
 ```
 ### 2. 下載ansible腳本檔

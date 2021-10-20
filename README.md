@@ -34,7 +34,7 @@ vim vars/default.yml
 
 ```
 1. twcc_key: tempkey  
-    建立容器時所要指定的金鑰
+    建立主機時所要指定的金鑰
 2. twcc_key_path: ./tempkey.pem  
     金鑰位置
 3. twcc_webserver_name: bfblogweb1013  

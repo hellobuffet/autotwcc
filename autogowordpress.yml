@@ -12,13 +12,25 @@
       pip:
          name: TWCC-CLI
          state: latest
+#登記twccapikey====================
+    - name: update twccli api key
+      ansible.builtin.expect:
+        command: twccli config init
+        responses:
+          "Do you agree we use the collection of the information by GA to improve user experience?  [Y/n]:" : "Y"
+          "Please enter TWCC project code:" : "{{ twcc_project_id }}"
+          "Please enter TWCC APIKEY:" : "{{ twcc_api_key }}"
+        # no_log: true
+#建立及下載主機所要使用的金鑰========================
+    - name: download twcc key
+      command: twccli mk key -n {{ twcc_key }}
 #修改金鑰權限========================
-    - name: change the key permissions
-      file:
-          path: "{{ twcc_key_path }}"
+#    - name: change the key permissions
+#      file:
+#          path: "~\twcc_data\{{ twcc_key_path }}"
 #          owner : ubuntu
 #          group : ubuntu
-          mode: "400"
+#          mode: "400"
 #建立web server vm==================
     - name: Old Credential found! Current credential is version
       ansible.builtin.expect:
@@ -50,6 +62,8 @@
       wait_for:
         timeout: 10
       delegate_to: localhost
+
+
 #======================================
 
 #建立db server vm=========================
@@ -120,8 +134,8 @@
   vars_files:
     - vars/default.yml
   vars:
-    ansible_ssh_private_key_file: "{{ twcc_key_path }}"
-    #金鑰位置記得修改
+    ansible_ssh_private_key_file: ~/.twcc_data/{{twcc_key}}.pem
+    # ansible_ssh_private_key_file: "{{ twcc_key_path }}"
     ansible_ssh_user: ubuntu
     ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
   tasks:
@@ -168,7 +182,8 @@
   vars_files:
     - vars/default.yml
   vars:
-    ansible_ssh_private_key_file: "{{ twcc_key_path }}"
+    ansible_ssh_private_key_file: ~/.twcc_data/{{twcc_key}}.pem
+    # ansible_ssh_private_key_file: "{{ twcc_key_path }}"
     ansible_ssh_user: ubuntu
     ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
 

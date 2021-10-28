@@ -2,6 +2,7 @@
 
 ### 20211028  
 修正功能：自動登入API並且不需要手動下載VCS KEY  
+說明文件：修改執行流程  
 
 
 ### 20211019  
@@ -40,25 +41,22 @@ vim vars/default.yml
 ```
 1. twcc_key: tempkey  
     建立主機時所要指定的金鑰
-2. twcc_key_path: ./tempkey.pem  
-    金鑰位置
-3. twcc_webserver_name: bfblogweb1013  
+2. twcc_webserver_name: bfblogweb1013  
     建立webserver的名稱
-4. twcc_dbserver_name: bfblogdb1013  
+3. twcc_dbserver_name: bfblogdb1013  
     建立dbserver的名稱
-5. twcc_lb_name: bfbloglb1013  
+4. twcc_lb_name: bfbloglb1013  
     建立附載平衡的名稱
-6. twcc_dbroot_pw: 1qaz2wsx  
+5. twcc_dbroot_pw: 1qaz2wsx  
     db的root密碼
-7. twcc_db_wordpress_id: wordpress  
+6. twcc_db_wordpress_id: wordpress  
     wordpress系統所要使用的資料庫id
-8. twcc_db_wordpress_pw: wordpresspw  
+7. twcc_db_wordpress_pw: wordpresspw  
     wordpress系統所要使用的資料庫密碼
     
 ```
-### 4.拷貝金鑰至default.yml指定路徑
 
-### 5. 執行ansible
+### 4. 執行ansible
 ```
 ansible-playbook autogowordpress.yml  
 

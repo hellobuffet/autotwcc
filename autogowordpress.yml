@@ -12,10 +12,10 @@
       ansible.builtin.expect:
         command: twccli config init
         responses:
-#          "Do you agree we use the collection of the information by GA to improve user experience?  [Y/n]:" : "Y"
           "Please enter TWCC project code:" : "{{ twcc_project_id }}"
           "Please enter TWCC APIKEY:" : "{{ twcc_api_key }}"
         # no_log: true  
+        #          "Do you agree we use the collection of the information by GA to improve user experience?  [Y/n]:" : "Y"
 #更新TWCCLI到最新版=================
     - name: update TWCCLI
       pip:

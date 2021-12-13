@@ -1,7 +1,7 @@
 ---
 twcc_credential: "~/.twcc_data/credential"
 allow_http_cidr: 0.0.0.0/0 # NOTE: keep this will be DANGEROUS!! http protocol is not suggested!
-twcc_key: tempkey
+twcc_key: tempkey123
 # twcc_key_path: ./tempkey.pem
 twcc_api_key: XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 twcc_project_id: ABC123456

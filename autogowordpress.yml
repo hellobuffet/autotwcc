@@ -7,21 +7,20 @@
     - vars/default.yml
 #==================VM系統設定區=================================
   tasks:
-#登記twccapikey====================
-    - name: update twccli api key
-      ansible.builtin.expect:
-        command: twccli config init
-        responses:
-          "Please enter TWCC project code:" : "{{ twcc_project_id }}"
-          "Please enter TWCC APIKEY:" : "{{ twcc_api_key }}"
-        # no_log: true  
-        #          "Do you agree we use the collection of the information by GA to improve user experience?  [Y/n]:" : "Y"
 #更新TWCCLI到最新版=================
     - name: update TWCCLI
       pip:
          name: TWCC-CLI
          state: latest
-
+#登記twccapikey====================
+    - name: update twccli api key
+      ansible.builtin.expect:
+        command: twccli config init
+        responses:
+          "Do you agree we use the collection of the information by GA to improve user experience?  [Y/n]:" : "Y"        
+          "Please enter TWCC project code:" : "{{ twcc_project_id }}"
+          "Please enter TWCC APIKEY:" : "{{ twcc_api_key }}"
+        # no_log: true  
 #建立及下載主機所要使用的金鑰========================
     - name: download twcc key
       command: twccli mk key -n {{ twcc_key }}

@@ -243,5 +243,6 @@
           - "使用者名稱：　　{{ twcc_db_wordpress_id }}"
           - "密碼：　　　　　{{ twcc_db_wordpress_pw }}"
           - "資料庫主機位置：{{ db_info_have_private_ip[0].private_ip }}"
+          - "金鑰放置位置：  ~/.twcc_data/{{ twcc_key }}.pem"
           - "資料表前置詞：　wp_"
           - "完成wordpress設定的登入，或於瀏覽器位置輸入http://{{ lb_info.vip }}/wp/wp-login.php進行登入。"
